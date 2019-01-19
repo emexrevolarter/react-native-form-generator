@@ -12,10 +12,65 @@ Quick View of Changes
 > You can skip this to details on the [usage of react-native-form-generator](https://github.com/emexrevolarter/react-native-form-generator/blob/master/README.md#react-native-form-generator) by the Designer, OR keep reading to discover the improved performance on this wonderful plugin.
 
 ## Let's Go!
+We began by styling the fields. The fields done so far are: 
+1. Input Field (src/lib/InputComponent.js)
+    1. Input field: If label is set, the field is aligned in column, otherwise row. Attributes are: helpText, placeholder, label, labelStyle, containerStyle, inputStyle, iconLeft (with style attr), iconRight (with style attr).
+1. Link Field (src/lib/LinkComponent.js)
+    1. Display field: The field is always aligned in row. Attributes are: helpText, label, labelStyle, containerStyle, iconLeft (with style attr), iconRight (with style attr).
+1. Switch Field (src/lib/SwitchComponent.js)
+    1. Switch field: The field is always aligned in row. Attributes are: helpText, label, labelStyle, containerStyle, switchStyle, iconLeft (with style attr), iconRight (with style attr).
+1. Picker Field (src/lib/PickerComponent.android.js & src/fields/PickerField.android.js)
+    1. Picker field: Modified to include search function.
+        1. types: PickerField, PickerSectionField
+            If label is set, the field is aligned in column, otherwise row. Attributes are: helpText, placeholder, label, labelStyle, containerStyle, items, section (true |false), multiple (true | false), iconLeft (with style attr), iconRight (with style attr), nav (func to redirect to another page; use only when multiple is false), get (func to set selected array to a state), tagStyle (only for PickerField).
+
+Now, you can add custom style as you desire. Below are some screen captures of the performance by the pickers.
 
 ### Single Picker
+Select single Item and nothing more than that. It comes with searchable items too. Do you wish to turn your Picker to Navigation? This is excellent for you. Just attach your navigation function, and boom, the User is off to the requested page immediately the Item is selected. More so, the key can be returned by same function for other purposes.
 
-![Single Picker: emexrevolarter](/linked-files/assets/gif/single-picker.gif)
+![Single Picker: emexrevolarter](https://github.com/emexrevolarter/liked-files/blob/master/assets/gif/single-picker.gif)
+
+### Multiple Picker
+Select multiple Items, with the ability to remove selected Items you wish to exclude. It comes with searchable items too. Same goes here in terms of Navigation capabilities in Single Picker above.
+
+![Multiple Picker: emexrevolarter](https://github.com/emexrevolarter/liked-files/blob/master/assets/gif/multiple-picker.gif)
+
+
+
+> It is Note worthy, pay attention to the change in the structure of the object **items**; the key `find` was added.
+
+### e.g items for PickerField
+   
+   `items={[
+    {  
+      name: "<Text>[icon] Fruits</Text>",
+      id: 'fruits',
+      find: 'Fruit'
+    }
+   ]}`
+
+
+### e.g section items for PickerSectionField
+   
+   `items={[
+    {  
+      name: "<Text>[icon] Fruits</Text>",
+      find: 'Fruit',
+      id: 0,
+      children: [{
+          name: "<Text>[icon] Apple Fruits</Text>",
+          id: 10,
+          find: 'Apple'
+        },{
+          name: "<Text>[icon] Kiwi Fruits</Text>",
+          id: 16,
+          find: 'Kiwi'
+        }]
+    },
+   ]`
+
+# Usage Example Code
 
 
 React Native Form Generator
