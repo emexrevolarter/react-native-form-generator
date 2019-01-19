@@ -21,7 +21,7 @@ import {Field} from './Field';
       let {x, y, width, height} = {... e.nativeEvent.layout};
 
       this.setState(e.nativeEvent.layout);
-      //e.nativeEvent.layout: {x, y, width, height}}}.
+      //e.nativeEvent.layout: {x, y, width, height}.
     }
 
     handleValueChange(date){
@@ -54,6 +54,7 @@ import {Field} from './Field';
 
     }
     render(){
+      let timeValue =this.props.dateTimeFormat(this.state.date);
       let placeholderComponent = (this.props.placeholderComponent)
                         ? this.props.placeholderComponent
                         : <Text style={[formStyles.fieldText, this.props.placeholderStyle]}>{this.props.placeholder}</Text>
@@ -69,7 +70,7 @@ import {Field} from './Field';
           {placeholderComponent}
           <View style={[formStyles.alignRight, formStyles.horizontalContainer]}>
             <Text style={[formStyles.fieldValue,this.props.valueStyle ]}>{
-            this.props.dateTimeFormat(this.state.date)
+            (this.state.date)?this.state.date.toLocaleDateString():""
           }</Text>
 
 

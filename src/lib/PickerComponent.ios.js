@@ -26,7 +26,7 @@ export class PickerComponent extends React.Component{
       let {x, y, width, height} = {... e.nativeEvent.layout};
 
       this.setState(e.nativeEvent.layout);
-      //e.nativeEvent.layout: {x, y, width, height}}}.
+      //e.nativeEvent.layout: {x, y, width, height}.
     }
 
     handleValueChange(value){

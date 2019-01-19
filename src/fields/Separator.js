@@ -1,11 +1,13 @@
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 let { View, StyleSheet, Text} = require('react-native');
 
 export class Separator extends React.Component{
   render(){
-     return(<View style={[formStyles.separatorContainer, this.props.containerStyle]}>
+     return(
+     <View style={[formStyles.separatorContainer, this.props.containerStyle]}>
        {
          (this.props.label)?
          <Text style={[formStyles.separator,this.props.labelStyle]}>{this.props.label.toUpperCase()}</Text>
@@ -17,8 +19,8 @@ export class Separator extends React.Component{
 }
 
 Separator.propTypes = {
-  labelStyle: Text.propTypes.style,
-  containerStyle: View.propTypes.style
+  labelStyle: PropTypes.array,
+  containerStyle: PropTypes.array
 }
 
 

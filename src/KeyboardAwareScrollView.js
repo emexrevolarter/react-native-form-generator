@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, {PropTypes} from 'react'
 import { ScrollView, DeviceEventEmitter } from 'react-native'
 import StyleSheetPropType from 'react-native/Libraries/StyleSheet/StyleSheetPropType'
 import ViewStylePropTypes from 'react-native/Libraries/Components/View/ViewStylePropTypes'

@@ -104,7 +104,7 @@ export class InputComponent extends React.Component{
 
 	      this.setState(e.nativeEvent.layout);
 	  }
-    // //e.nativeEvent.layout: {x, y, width, height}}}.
+    // //e.nativeEvent.layout: {x, y, width, height}.
   }
 
   handleLabelLayoutChange(e){
@@ -113,7 +113,7 @@ export class InputComponent extends React.Component{
 
 	      this.setState({labelWidth:width});
 	  }
-    // //e.nativeEvent.layout: {x, y, width, height}}}.
+    // //e.nativeEvent.layout: {x, y, width, height}.
   }
   handleChange(event){
     const value = event.nativeEvent.text;
@@ -155,20 +155,28 @@ export class InputComponent extends React.Component{
           onLayout={this.handleLayoutChange}
           style={[
               this.props.containerStyle,
-
+              this.props.label?{flexDirection: 'column'}: {flexDirection: 'row'}
             ]}>
-          {(this.props.iconLeft)
-            ? this.props.iconLeft
-            : null
-          }
           {(this.props.label)
             ?
-            <Text style={this.props.labelStyle}
+            <View style={{flexDirection: 'row', justifyContent: this.props.iconLeft? 'flex-start' :'space-between'}}>
+            {(this.props.iconLeft)
+              ? <View style={{alignSelf: 'flex-start'}}>{this.props.iconLeft}</View>
+              : null
+            }
+            <Text style={[{alignSelf: 'center'} ,this.props.labelStyle]}
               onLayout={this.handleLabelLayoutChange}
               onPress={this.handleFieldPress}
               suppressHighlighting={true}
               >{this.props.label}</Text>
-            : null
+              {(this.props.iconRight)
+                  ? <View style={{alignSelf: 'flex-end'}}>{this.props.iconRight}</View>
+                  : null
+                }
+            </View>
+            : (this.props.iconLeft)
+              ? <View style={{alignSelf: 'flex-start'}}>{this.props.iconLeft}</View>
+              : null
           }
           <TextInput
             {...this.props}
@@ -176,7 +184,7 @@ export class InputComponent extends React.Component{
             keyboardType = {this.props.keyboardType}
             style={[
                 this.props.inputStyle,
-                {height: this.state.inputHeight}
+                {height: this.state.inputHeight, justifyContent: 'center', alignSelf: 'center'}
               ]}
 
             onChange={this.handleChange}
@@ -189,10 +197,10 @@ export class InputComponent extends React.Component{
               }
 
             />
-          {(this.props.iconRight)
-              ? this.props.iconRight
-              : null
-            }
+            {(this.props.label && this.props.iconRight)
+                  ? <View style={{alignSelf: 'flex-end'}}>{this.props.iconRight}</View>
+                  : null
+                }
         </View>
       </Field>
     )
@@ -206,7 +214,7 @@ export class InputComponent extends React.Component{
 // }
 
 InputComponent.propTypes = {
-  labelStyle: Text.propTypes.style,
-  inputStyle: TextInput.propTypes.style,
-  containerStyle: View.propTypes.style
+  labelStyle: PropTypes.array,
+  containerStyle: PropTypes.array,
+  switchStyle: PropTypes.array
 }

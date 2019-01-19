@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 let { View, StyleSheet, Text, Switch} = require('react-native');
 
 import {Field} from './Field';
@@ -16,7 +17,7 @@ export class SwitchComponent extends React.Component{
     let {x, y, width, height} = {... e.nativeEvent.layout};
 
     this.setState(e.nativeEvent.layout);
-    //e.nativeEvent.layout: {x, y, width, height}}}.
+    //e.nativeEvent.layout: {x, y, width, height}.
   }
   setValue(value){
     this.setState({value:value});
@@ -35,9 +36,13 @@ export class SwitchComponent extends React.Component{
   render(){
 
     return(<Field {...this.props}>
-      <View style={this.props.containerStyle}
+      <View style={[{flexDirection: 'row', justifyContent: this.props.iconLeft? 'flex-start' :'space-between'},
+       this.props.containerStyle]}
         onLayout={this.handleLayoutChange.bind(this)}>
-
+        {(this.props.iconLeft)
+            ? <View style={{alignSelf: 'flex-start'}}>{this.props.iconLeft}</View>
+            : null
+          }
         <Text style={this.props.labelStyle}>{this.props.label}</Text>
           <Switch
           onValueChange={this.handleValueChange.bind(this)}
@@ -52,9 +57,9 @@ export class SwitchComponent extends React.Component{
 }
 
 SwitchComponent.propTypes = {
-  labelStyle: Text.propTypes.style,
-  containerStyle: View.propTypes.style,
-  switchStyle: Switch.propTypes.style
+  labelStyle: PropTypes.array,
+  containerStyle: PropTypes.array,
+  switchStyle: PropTypes.array
 }
 
 

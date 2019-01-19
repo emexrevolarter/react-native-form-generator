@@ -17,8 +17,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import { Form,
   Separator,InputField, LinkField,
-  SwitchField, PickerField, DatePickerField,
-  TimePickerField, CountDownField
+  SwitchField, PickerField,DatePickerField,TimePickerField
 } from 'react-native-form-generator';
 
 class CustomModal extends React.Component{
@@ -197,9 +196,6 @@ export class FormView extends React.Component{
       prettyPrint={true}
       pickerWrapper={<CustomModal />}
       />
-        <CountDownField ref='countdown'
-                        label="CountDown"
-                        placeholder='11:00' />
         <DatePickerField ref='meeting'
           iconLeft={[<Icon style={{alignSelf:'center', marginLeft:10}} name='ios-flame' size={30} />,
                      <Icon style={{alignSelf:'center', marginLeft:10, color:'red'}} name='ios-flame' size={30} />

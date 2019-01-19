@@ -25,7 +25,7 @@ export class DatePickerComponent extends React.Component{
     let {x, y, width, height} = {... e.nativeEvent.layout};
 
     this.setState(e.nativeEvent.layout);
-    //e.nativeEvent.layout: {x, y, width, height}}}.
+    //e.nativeEvent.layout: {x, y, width, height}.
   }
 
   handleValueChange(date){
@@ -137,9 +137,6 @@ DatePickerComponent.defaultProps = {
       case 'time':
         value = date.toLocaleTimeString()
       break;
-        case 'countdown':
-            value = date.getHours() + ":" + date.getMinutes();
-            break;
       default:
         value = date.toLocaleDateString()
     }

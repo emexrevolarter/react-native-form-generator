@@ -21,7 +21,7 @@ import {Field} from './Field';
       let {x, y, width, height} = {... e.nativeEvent.layout};
 
       this.setState(e.nativeEvent.layout);
-      //e.nativeEvent.layout: {x, y, width, height}}}.
+      //e.nativeEvent.layout: {x, y, width, height}.
     }
 
     handleValueChange(date){
@@ -59,7 +59,7 @@ import {Field} from './Field';
       }
       this.props.onPress && this.props.onPress(event);
     }
-
+    
     render(){
       let placeholderComponent = (this.props.placeholderComponent)
                         ? this.props.placeholderComponent
