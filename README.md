@@ -15,7 +15,7 @@ Quick View of Changes
 
 ### Single Picker
 
-![Single Picker: emexrevolarter](../liked-files/blob/master/assets/gif/single-picker.gif)
+![Single Picker: emexrevolarter](../liked-files/assets/gif/single-picker.gif)
 
 
 React Native Form Generator
