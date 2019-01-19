@@ -36,7 +36,15 @@ Select multiple Items, with the ability to remove selected Items you wish to exc
 
 ![Multiple Picker: emexrevolarter](https://github.com/emexrevolarter/liked-files/blob/master/assets/gif/multiple-picker.gif)
 
+### Single Picker (in form)
+Same as Single Picker, with the exception that this is a form element, since form returns its value. It is also searchable.
 
+![Single Picker in form: emexrevolarter](https://github.com/emexrevolarter/liked-files/blob/master/assets/gif/single-picker-in-form.gif)
+
+### Multiple Picker (in form)
+Same as Multiple Picker, with the exception that this is a form element, since form returns its value. It is also searchable.
+
+![Multiple Picker in form: emexrevolarter](https://github.com/emexrevolarter/liked-files/blob/master/assets/gif/multiple-picker-in-form.gif)
 
 > It is Note worthy, pay attention to the change in the structure of the object **items**; the key `find` was added.
 
@@ -71,6 +79,226 @@ Select multiple Items, with the ability to remove selected Items you wish to exc
    ]`
 
 # Usage Example Code
+Follow the link to view (or use) the included Component. Any other Component(s) used bu not included can easily be created by you.
+Note that this time,
+* only stand alone (single) has attribute: nav
+* stand alone's (single and multiple) have attributes: get, and multiple
+* form field (single and multiple) have attributes: section, and multiple
+
+> [Single Picker (stand alone)](https://github.com/emexrevolarter/liked-files/blob/master/components/ListComponent.js)
+    
+    `<EmexSearchableList items={items}
+          nav={this.openPage} // use only when multiple is false
+          get={this.getList} // array
+          label='Simple Picker (can be multiple select too)'
+          multiple={false}
+          helpText='**ACTION: triggers function, e.g opens selected page'
+          containerStyle={{backgroundColor: '#ff0000', minHeight: 100, borderRadius: 3, paddingHorizontal: 5}}
+          labelStyle={{color: '#00ff00', paddingBottom: 10}}
+          tagStyle={{backgroundColor: '#8B0000'}}
+          iconLeft={
+            <IconSolid icon='amazon'
+              size={20}
+              style={
+                {color:"#61d062", width: SCREEN_X}
+              }
+            />
+          } /> `
+    
+> [Multiple Picker (Stand alone)](https://github.com/emexrevolarter/liked-files/blob/master/components/ListComponent.js)
+    
+    '
+    <EmexSectionSearchableList items={itemsSec}
+          //nav={this.openPage} // use only when multiple is false
+          get={this.getList} // array
+          label='Picker Sections (multiple select is active)'
+          multiple={true}
+          helpText='**ACTION: sets array of selected items'
+          containerStyle={[{backgroundColor: '#ff0000', minHeight: 50, borderRadius: 3}, AppStyles.boxShadow]}
+          labelStyle={[{color: '#00ff00'}]}
+          iconLeft={
+            <IconSolid icon='amazon'
+              size={20}
+              style={[
+                {color:"#61d062", width: SCREEN_X}
+              ]}
+            />
+          }
+         />
+    '
+        
+> [Single Picker (in form)](https://github.com/emexrevolarter/liked-files/blob/master/components/FormExamComponent.js)
+    
+    '<PickerField ref='unit'
+          section={false}
+          multiple={false}
+          label='Single select'
+          
+      
+          items = {[
+            {
+              id: 'Home',
+              find: 'Home',
+            name: <Text><IconSolid icon='home' size={15} style={[ {color:"#800000", width: SCREEN_X}]} /> Home</Text>,
+          }, {
+            id: 'About',
+            find: 'About',
+            name: <Text><IconSolid icon='user' size={15} style={[ {color:"#800000", width: SCREEN_X}]} /> About</Text>,
+          }, {
+            id: 'Settings',
+            find: 'Settings',
+            name: <Text><IconSolid icon='cog' size={15} style={[ {color:"#800000", width: SCREEN_X}]} /> Setting</Text>,
+          }, {
+            id: 'Form',
+            find: 'Form',
+            name: 'Form',
+          }, {
+            id: ' users',
+            find: 'Users',
+            name: 'Users',
+          }, {
+            id: ' editors',
+            find: 'Editors',
+            name: 'Editors',
+          }, {
+            id: ' premium',
+            find: 'Premium',
+            name: 'Premium',
+          }, {
+            id: ' accounts',
+            find: 'Accounts',
+            name: 'Accounts',
+          }, {
+            id: ' plugins',
+            find: 'Plugins',
+            name: 'Plugins',
+          }
+          ]}
+
+          helpText='Choose any Service'
+          containerStyle={[{backgroundColor: '#ff0000', minHeight: 100, borderRadius: 3, paddingHorizontal: 5}, AppStyles.boxShadow]}
+          labelStyle={[{color: '#00ff00', paddingBottom: 10}]}
+          tagStyle={{backgroundColor: '#f00'}}
+          iconLeft={
+            <IconSolid icon='cart-arrow-down'
+              size={20}
+              style={[
+                {color:"#61d062", width: SCREEN_X}
+              ]}
+            />
+          }
+          />'
+    
+
+> [Multiple Picker (in form)](https://github.com/emexrevolarter/liked-files/blob/master/components/FormExamComponent.js)
+    
+    '<PickerField ref='multiple'
+          section={true}
+          multiple={true}
+          label='Sectioned multiple select'
+          items = {[
+            {  
+              name: "Home of Fruits",
+              find: 'Fruit',
+              id: 0,
+              children: [{
+                  name: <Text><IconSolid icon='home' size={15} style={[ {color:"#800000", width: SCREEN_X}]} /> Home</Text>,
+                  id: ' Home',
+                  find: 'Home'
+                },{
+                  name: "Strawberry",
+                  id: ' Strawberry',
+                  find: 'Strawberry'
+                },{
+                  name: "Pineapple",
+                  id: ' Pineapple',
+                  find: 'Pineapple'
+                },{
+                  name: "Banana",
+                  id: ' Banana',
+                  find: 'Banana'
+                },{
+                  name: "Watermelon",
+                  id: ' Watermelon',
+                  find: 'Watermelon'
+                },{
+                  name: "Kiwi fruit",
+                  id: ' Kiwi',
+                  find: 'Kiwi'
+                }]
+            },
+            {
+              name: "Gems",
+              find: 'Gems',
+              id: 1,
+              children: [{
+                  name: "Quartz",
+                  id: ' Quartz',
+                  find: 'Quartz'
+                },{
+                  name: "Zircon",
+                  id: ' Zircon',
+                  find: 'Zircon'
+                },{
+                  name: "Sapphire",
+                  id: ' Sapphire',
+                  find: 'Sapphire'
+                },{
+                  name: "Topaz",
+                  id: ' Topaz',
+                  find: 'Topaz'
+                }]
+            },
+            {
+              name: "Plants",
+              find: 'Plants',
+              id: 2,
+              children: [{
+                  name: "Spinach",
+                  id: ' Spinach',
+                  find: 'Spinach'
+                },{
+                  name: "Yucca",
+                  id: ' Yucca',
+                  find: 'Yucca'
+                },{
+                  name: "Monsteria",
+                  id: ' Monsteria',
+                  find: 'Monsteria'
+                },{
+                  name: "Palm",
+                  id: ' Palm',
+                  find: 'Palm'
+                }]
+            },
+          ]}  
+          helpText='Choose any Fruit'
+          containerStyle={[{backgroundColor: '#ff0000', minHeight: 100, borderRadius: 3, paddingHorizontal: 5}, AppStyles.boxShadow]}
+          labelStyle={[{color: '#00ff00', paddingBottom: 10}]}
+          iconLeft={
+            <IconSolid icon='cart-plus'
+              size={20}
+              style={[
+                {color:"#61d062", width: SCREEN_X}
+              ]}
+            />
+          }
+          />'
+
+# Dependencies
+The two plugins that made all these possible are stated below. Include them in the node_modules of your App to replace the existing ones (if you have installed them; if not, install first, then replace).
+
+[react-native-multiple-select](packages/react-native-multiple-select)
+
+[react-native-sectioned-multi-select](packages/react-native-sectioned-multi-select)
+
+
+# More Benefits
+We thank you for reading this far. You view this great Activity Indicator created by us; all for free.
+
+[Activity Indicator by emexrevolarter](https://github.com/emexrevolarter/liked-files/blob/master/assets/gif/activity-indicator.gif)
+
+
 
 
 React Native Form Generator
