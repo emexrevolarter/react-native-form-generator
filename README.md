@@ -1,3 +1,23 @@
+Quick View of Changes
+===============
+
+## New
+* Searchable Items
+* Use as Navigation
+* Trigger another function
+* Use as form field
+* Single and Multiple selection restriction
+* Custom styles and colors
+
+> You can skip this to details on the [usage of react-native-form-generator](https://github.com/emexrevolarter/react-native-form-generator/blob/master/README.md#react-native-form-generator) by the Designer, OR keep reading to discover the improved performance on this wonderful plugin.
+
+## Let's Go!
+
+### Single Picker
+
+![Single Picker: emexrevolarter](../liked-files/blob/master/assets/gif/single-picker.gif)
+
+
 React Native Form Generator
 ================
 
