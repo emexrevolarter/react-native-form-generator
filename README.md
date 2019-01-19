@@ -296,7 +296,9 @@ The two plugins that made all these possible are stated below. Include them in t
 # More Benefits
 We thank you for reading this far. You view this great Activity Indicator created by us; all for free.
 
-[Activity Indicator by emexrevolarter](https://github.com/emexrevolarter/liked-files/blob/master/assets/gif/activity-indicator.gif)
+![Activity Indicator by emexrevolarter](https://github.com/emexrevolarter/liked-files/blob/master/assets/gif/activity-indicator.gif)
+
+[Get this Awesome Indicator for FREE](https://github.com/emexrevolarter/liked-files/blob/master/components/IndicatorComponent.js)
 
 
 
